@@ -1,0 +1,263 @@
+[
+    {
+        "name":"Padi Sawah Irigasi",
+        "latinName":"Oryza Sativa",
+        "minPh":"5.5",
+        "maxPh":"8.2",
+        "minMoisture":"33",
+        "maxMoisture":"90",
+        "minTemperature":"24",
+        "maxTemperature":"29"
+    },
+    {
+        "name":"Padi Sawah Tadah Hujan",
+        "latinName":"Oryza Sativa",
+        "minPh":"5.5",
+        "maxPh":"8.2",
+        "minMoisture":"33",
+        "maxMoisture":"90",
+        "minTemperature":"24",
+        "maxTemperature":"29"
+    },
+    {
+        "name":"Sorgum",
+        "latinName":"Shorgum Bicolor",
+        "minPh":"5.8",
+        "maxPh":"7.8",
+        "minMoisture":"42",
+        "maxMoisture":"90",
+        "minTemperature":"20",
+        "maxTemperature":"26"
+    },
+    {
+        "name":"Jagung",
+        "latinName":"Zea Mays",
+        "minPh":"5.5",
+        "maxPh":"8.2",
+        "minMoisture":"30",
+        "maxMoisture":"75",
+        "minTemperature":"25",
+        "maxTemperature":"27"
+    },
+    {
+        "name":"Ubi Kayu",
+        "latinName":"Manihot Esculenta",
+        "minPh":"6.0",
+        "maxPh":"8.2",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"12",
+        "maxTemperature":"23"
+    },
+    {
+        "name":"Gandum",
+        "latinName":"Triticum Aestivum",
+        "minPh":"5.2",
+        "maxPh":"7.0",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"22",
+        "maxTemperature":"28"
+    },
+    {
+        "name":"Talas",
+        "latinName":"Colocasia Esculenta",
+        "minPh":"5.2",
+        "maxPh":"8.2",
+        "minMoisture":"30",
+        "maxMoisture":"75",
+        "minTemperature":"22",
+        "maxTemperature":"25"
+    },
+    {
+        "name":"Ubi Jalar",
+        "latinName":"Ipomoea Batatas",
+        "minPh":"5.5",
+        "maxPh":"6.5",
+        "minMoisture":"40",
+        "maxMoisture":"90",
+        "minTemperature":"25",
+        "maxTemperature":"32"
+    },
+    {
+        "name":"Kedelai",
+        "latinName":"Glycine Maximum",
+        "minPh":"5.0",
+        "maxPh":"7.0",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"26",
+        "maxTemperature":"30"
+    },
+    {
+        "name":"Iles Iles",
+        "latinName":"Amorphophalus Ancophyllus",
+        "minPh":"5.5",
+        "maxPh":"7.5",
+        "minMoisture":"24",
+        "maxMoisture":"80",
+        "minTemperature":"23",
+        "maxTemperature":"25"
+    },
+    {
+        "name":"Kacang Hijau",
+        "latinName":"Phaseolus Radiatus LINN",
+        "minPh":"6.0",
+        "maxPh":"7.0",
+        "minMoisture":"50",
+        "maxMoisture":"80",
+        "minTemperature":"25",
+        "maxTemperature":"27"
+    },
+    {
+        "name":"Kacang Tanah",
+        "latinName":"Arachis Hypogea",
+        "minPh":"5.6",
+        "maxPh":"7.6",
+        "minMoisture":"42",
+        "maxMoisture":"75",
+        "minTemperature":"12",
+        "maxTemperature":"24"
+    },
+    {
+        "name":"Kacang Arab",
+        "latinName":"Cicer Arietinum",
+        "minPh":"6.0",
+        "maxPh":"7.8",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"20",
+        "maxTemperature":"30"
+    },
+    {
+        "name":"Kacang Tunggak",
+        "latinName":"Vigna Unguiculata",
+        "minPh":"6.0",
+        "maxPh":"7.6",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"16",
+        "maxTemperature":"23"
+    },
+    {
+        "name":"Wortel",
+        "latinName":"Daucus Carota",
+        "minPh":"5.6",
+        "maxPh":"7.0",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"16",
+        "maxTemperature":"18"
+    },
+    {
+        "name":"Kentang",
+        "latinName":"Solanum Tuberosum L.",
+        "minPh":"6.0",
+        "maxPh":"7.0",
+        "minMoisture":"40",
+        "maxMoisture":"80",
+        "minTemperature":"16",
+        "maxTemperature":"18"
+    },
+    {
+        "name":"Bawang Putih",
+        "latinName":"Allium Sativum LINN",
+        "minPh":"6.0",
+        "maxPh":"7.8",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"20",
+        "maxTemperature":"25"
+    },
+    {
+        "name":"Bawang Merah",
+        "latinName":"Allium Oscolonicum",
+        "minPh":"6.0",
+        "maxPh":"7.8",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minTemperature":"10",
+        "maxTemperature":"25"
+    },
+    {
+        "name":"Paprika",
+        "latinName":"Capsicum sp.",
+        "minTemperature":"21",
+        "maxTemperature":"27",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minPh":"6",
+        "maxPh":"7.6"
+    },
+    {
+        "name":"Cabai Merah",
+        "latinName":"Capsicum Annuum",
+        "minTemperature":"18",
+        "maxTemperature":"26",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minPh":"6",
+        "maxPh":"7.6"
+    },
+    {
+        "name":"Buncis",
+        "latinName":"Phaseolus Vulgaris",
+        "minTemperature":"13",
+        "maxTemperature":"24",
+        "minMoisture":"65",
+        "maxMoisture":"90",
+        "minPh":"6",
+        "maxPh":"7.8"
+    },
+    {
+        "name":"Kubis",
+        "latinName":"Brassica Oleracea L.",
+        "minTemperature":"12",
+        "maxTemperature":"24",
+        "minMoisture":"42",
+        "maxMoisture":"75",
+        "minPh":"5.6",
+        "maxPh":"7.6"
+    },
+    {
+        "name":"Kacang Kapri",
+        "latinName":"Pisum Sativum",
+        "minTemperature":"12",
+        "maxTemperature":"24",
+        "minMoisture":"42",
+        "maxMoisture":"75",
+        "minPh":"5.6",
+        "maxPh":"7.6"
+    },
+    {
+        "name":"Kacang Panjang",
+        "latinName":"Vigna Sinensis ENDL",
+        "minTemperature":"14",
+        "maxTemperature":"20",
+        "minMoisture":"",
+        "maxMoisture":"",
+        "minPh":"6",
+        "maxPh":"7.5"
+    },
+    {
+        "name":"Mentimun",
+        "latinName":"Cucumis Sativus LINN",
+        "minTemperature":"12",
+        "maxTemperature":"24",
+        "minMoisture":"42",
+        "maxMoisture":"75",
+        "minPh":"5.6",
+        "maxPh":"7.6"
+    },
+    {
+        "name":"Bayam",
+        "latinName":"Amaranthus spe.div.",
+        "minTemperature":"22",
+        "maxTemperature":"30",
+        "minMoisture":"24",
+        "maxMoisture":"80",
+        "minPh":"5.8",
+        "maxPh":"7.6"
+    }
+    
+]
