@@ -1,7 +1,6 @@
-import 'package:final_project/dashboard.dart';
-import 'package:final_project/fertilizerrecomendationpage.dart';
-import 'package:final_project/plantrecomendationpage.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:final_project/pages/dashboard.dart';
+import 'package:final_project/pages/fertilizerrecomendationpage.dart';
+import 'package:final_project/pages/plantrecomendationpage.dart';
 import 'package:flutter/material.dart';
 
 class MainApp extends StatefulWidget {
