@@ -6,12 +6,12 @@ import 'package:flutter/services.dart';
 class Plant {
   late String name;
   late String latinName;
-  late double minPh;
-  late double maxPh;
-  late double minMoisture;
-  late double maxMoisture;
-  late double minTemperature;
-  late double maxTemperature;
+  late String minPh;
+  late String maxPh;
+  late String minMoisture;
+  late String maxMoisture;
+  late String minTemperature;
+  late String maxTemperature;
 
   Plant({
     required this.name,
@@ -41,5 +41,11 @@ class Plant {
   Plant.fromJson(Map<String, dynamic> plant) {
     name = plant["name"];
     latinName = plant["latinName"];
+    minPh = plant["minPh"];
+    maxPh = plant["maxPh"];
+    minMoisture = plant["minMoisture"];
+    maxMoisture = plant["maxMoisture"];
+    minTemperature = plant["minTemperature"];
+    maxTemperature = plant["maxTemperature"];
   }
 }

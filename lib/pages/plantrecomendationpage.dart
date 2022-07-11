@@ -29,12 +29,49 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
             itemBuilder: (context, index) {
               var plant = snapshot.data![index];
 
-              return ListTile(
-                title: Text(plant.name),
-                subtitle: Text(plant.latinName),
+              return Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        plant.name,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Text(plant.latinName),
+                      Column(
+                        children: const [Divider()],
+                      ),
+                      // Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          _plantDetail(
+                              plant.minPh, plant.maxPh, "", Icons.science),
+                          _plantDetail(plant.minMoisture, plant.maxMoisture,
+                              "%", Icons.water_drop),
+                          _plantDetail(plant.minTemperature,
+                              plant.maxTemperature, "C", Icons.thermostat),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               );
             });
       },
+    );
+  }
+
+  Widget _plantDetail(
+      String minValue, String maxValue, String unit, IconData icon) {
+    return Column(
+      children: [
+        Icon(icon),
+        Text("$minValue - $maxValue $unit"),
+      ],
     );
   }
 
