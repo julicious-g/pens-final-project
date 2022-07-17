@@ -1,12 +1,12 @@
-import 'package:final_project/mainscreen.dart';
+import 'package:final_project/main_screen_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FinalProjectApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class FinalProjectApp extends StatelessWidget {
+  const FinalProjectApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.lightGreen,
       ),
-      home: MainApp(),
+      home: MainScreenPage(),
     );
   }
 }

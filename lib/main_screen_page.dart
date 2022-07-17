@@ -1,14 +1,14 @@
-import 'package:final_project/pages/dashboard.dart';
+import 'package:final_project/pages/dashboard_page.dart';
 import 'package:final_project/pages/fertilizerrecomendationpage.dart';
 import 'package:final_project/pages/plantrecomendationpage.dart';
 import 'package:flutter/material.dart';
 
-class MainApp extends StatefulWidget {
+class MainScreenPage extends StatefulWidget {
   @override
-  State createState() => _MainAppState();
+  State createState() => _MainScreenPageState();
 }
 
-class _MainAppState extends State<MainApp> {
+class _MainScreenPageState extends State<MainScreenPage> {
   int _pageIndex = 0;
 
   @override
@@ -34,8 +34,8 @@ class _MainAppState extends State<MainApp> {
       body: IndexedStack(
         index: _pageIndex,
         children: <Widget>[
-          Dashboard(),
-          PlantRecomendationPage(),
+          DashboardPage(),
+          const PlantRecomendationPage(),
           FertilizerRecommendationPage()
         ],
       ),
