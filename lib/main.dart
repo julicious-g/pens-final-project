@@ -1,7 +1,13 @@
 import 'package:final_project/mainscreen.dart';
+import 'package:final_project/services/sensor/plain_socket_sensor_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  var sensorService = new PlainSocketSensorService();
+  sensorService
+      .init()
+      .then((value) => print("socket connection is establised"));
+
   runApp(const MyApp());
 }
 
