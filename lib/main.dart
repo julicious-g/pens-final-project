@@ -1,14 +1,17 @@
 import 'package:final_project/mainscreen.dart';
-import 'package:final_project/services/sensor/plain_socket_sensor_service.dart';
+import 'package:final_project/services/sensor/dummy_sensor_service.dart';
+import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-void main() {
-  var sensorService = new PlainSocketSensorService();
-  sensorService
-      .init()
-      .then((value) => print("socket connection is establised"));
+Future<void> main() async {
+  await setupServices();
 
   runApp(const MyApp());
+}
+
+Future<void> setupServices() async {
+  GetIt.I.registerSingleton<SensorService>(await DummySensorService().init());
 }
 
 class MyApp extends StatelessWidget {

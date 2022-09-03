@@ -1,22 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 abstract class SensorService {
-  late double _ph;
-  late double _soilMoisture;
-  late double _airTemp;
-  late double _airMoisture;
+  late ValueNotifier<double> PH = ValueNotifier<double>(0.0);
+  late ValueNotifier<double> Salinity = ValueNotifier<double>(0.0);
+  late ValueNotifier<int> Moisture = ValueNotifier<int>(0);
 
-  SensorService() {
-    _ph = 0.0;
-    _soilMoisture = 0.0;
-    _airTemp = 0.0;
-    _airMoisture = 0.0;
-  }
+  SensorService() {}
 
   Future<void> init();
-
-  double getPh() => _ph;
-  double getSoilMoisture() => _soilMoisture;
-  double getAirTemp() => _airTemp;
-  double getAirMoisture() => _airMoisture;
 }

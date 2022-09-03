@@ -35,8 +35,9 @@ class _MainAppState extends State<MainApp> {
         index: _pageIndex,
         children: <Widget>[
           Dashboard(),
-          PlantRecomendationPage(),
-          FertilizerRecommendationPage()
+          // PlantRecomendationPage(),
+          FertilizerRecommendationPage(),
+          FertilizerRecommendationPage(),
         ],
       ),
     );
