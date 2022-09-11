@@ -15,9 +15,14 @@ class DummySensorService extends SensorService {
 
   void _randomizeSensorValue() {
     var seed = DateTime.now().millisecondsSinceEpoch;
-    PH.value = Random(seed).nextDouble() + Random(seed).nextInt(14);
-    Salinity.value = Random(seed).nextDouble() + Random(seed).nextInt(5);
-    Moisture.value = Random(seed).nextInt(100);
+    var ph = Random(seed).nextDouble() + Random(seed).nextInt(14);
+    var salinity = Random(seed).nextDouble() + Random(seed).nextInt(5);
+    var moisture = Random(seed).nextInt(100);
+
+    setPh(ph);
+    setSalinity(salinity);
+    setMoisture(moisture);
+    notifyListeners();
 
     Timer(const Duration(seconds: 2), _randomizeSensorValue);
   }

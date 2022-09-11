@@ -1,11 +1,28 @@
 import 'package:flutter/cupertino.dart';
 
-abstract class SensorService {
-  late ValueNotifier<double> PH = ValueNotifier<double>(0.0);
-  late ValueNotifier<double> Salinity = ValueNotifier<double>(0.0);
-  late ValueNotifier<int> Moisture = ValueNotifier<int>(0);
+abstract class SensorService extends ChangeNotifier {
+  late double _ph;
+  late double _salinity;
+  late int _moisture;
 
-  SensorService() {}
+  @protected
+  void setPh(double ph) {
+    _ph = ph;
+  }
+
+  @protected
+  void setSalinity(double salinity) {
+    _salinity = salinity;
+  }
+
+  @protected
+  void setMoisture(int moisture) {
+    _moisture = moisture;
+  }
+
+  double getPh() => _ph;
+  double getSalinity() => _salinity;
+  int getMoisture() => _moisture;
 
   Future<void> init();
 }

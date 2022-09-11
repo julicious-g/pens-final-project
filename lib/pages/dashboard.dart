@@ -19,9 +19,9 @@ class Dashboard extends StatelessWidget {
             child: ListTile(
               leading: const Icon(Icons.science),
               title: AnimatedBuilder(
-                animation: _sensorService.PH,
+                animation: _sensorService,
                 builder: (context, child) {
-                  return Text(_sensorService.PH.value.toStringAsFixed(2),
+                  return Text(_sensorService.getPh().toStringAsFixed(2),
                       style: const TextStyle(
                           fontSize: 32, fontWeight: FontWeight.bold));
                 },
@@ -37,10 +37,10 @@ class Dashboard extends StatelessWidget {
             child: ListTile(
               leading: const Icon(Icons.bolt),
               title: AnimatedBuilder(
-                  animation: _sensorService.Salinity,
+                  animation: _sensorService,
                   builder: (context, child) {
                     return Text(
-                      "${_sensorService.Salinity.value.toStringAsFixed(2)} dS/cm",
+                      "${_sensorService.getSalinity().toStringAsFixed(2)} dS/cm",
                       style: const TextStyle(
                           fontSize: 32, fontWeight: FontWeight.bold),
                     );
@@ -56,10 +56,10 @@ class Dashboard extends StatelessWidget {
             child: ListTile(
               leading: const Icon(Icons.water_drop),
               title: AnimatedBuilder(
-                  animation: _sensorService.Moisture,
+                  animation: _sensorService,
                   builder: (context, child) {
                     return Text(
-                      "${_sensorService.Moisture.value} %",
+                      "${_sensorService.getMoisture()} %",
                       style: const TextStyle(
                           fontSize: 32, fontWeight: FontWeight.bold),
                     );
