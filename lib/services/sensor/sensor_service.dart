@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 
-abstract class SensorService {
+abstract class SensorService extends ChangeNotifier {
   late double _ph;
-  late double _soilMoisture;
-  late double _airTemp;
-  late double _airMoisture;
+  late double _salinity;
+  late int _moisture;
 
-  SensorService() {
-    _ph = 0.0;
-    _soilMoisture = 0.0;
-    _airTemp = 0.0;
-    _airMoisture = 0.0;
+  @protected
+  void setPh(double ph) {
+    _ph = ph;
   }
 
-  Future<void> init();
+  @protected
+  void setSalinity(double salinity) {
+    _salinity = salinity;
+  }
+
+  @protected
+  void setMoisture(int moisture) {
+    _moisture = moisture;
+  }
 
   double getPh() => _ph;
-  double getSoilMoisture() => _soilMoisture;
-  double getAirTemp() => _airTemp;
-  double getAirMoisture() => _airMoisture;
+  double getSalinity() => _salinity;
+  int getMoisture() => _moisture;
+
+  Future<void> init();
 }
