@@ -1,8 +1,16 @@
 import 'package:final_project/main_screen_page.dart';
+import 'package:final_project/services/sensor/dummy_sensor_service.dart';
+import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-void main() {
+Future<void> main() async {
+  await setupServices();
   runApp(const FinalProjectApp());
+}
+
+Future<void> setupServices() async {
+  GetIt.I.registerSingleton<SensorService>(await DummySensorService().init());
 }
 
 class FinalProjectApp extends StatelessWidget {

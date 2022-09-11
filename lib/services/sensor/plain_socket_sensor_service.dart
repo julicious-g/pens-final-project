@@ -8,7 +8,7 @@ class PlainSocketSensorService extends SensorService {
   late SensorsModel _model;
 
   @override
-  Future<void> init() async {
+  Future<SensorService> init() async {
     _socket = await Socket.connect("localhost", 12345);
     _socket.listen(_dataHandler, onError: _errorHandler, onDone: _doneHandler);
 
@@ -16,6 +16,8 @@ class PlainSocketSensorService extends SensorService {
     _model.ph = "-1";
 
     _socket.write("test");
+
+    return this;
   }
 
   void _dataHandler(data) {

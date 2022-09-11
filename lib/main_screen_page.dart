@@ -1,4 +1,4 @@
-import 'package:final_project/pages/dashboard_page.dart';
+import 'package:final_project/pages/dashboard.dart';
 import 'package:final_project/pages/fertilizerrecomendationpage.dart';
 import 'package:final_project/pages/plantrecomendationpage.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class _MainScreenPageState extends State<MainScreenPage> {
       body: IndexedStack(
         index: _pageIndex,
         children: <Widget>[
-          DashboardPage(),
+          Dashboard(),
           const PlantRecomendationPage(),
           FertilizerRecommendationPage()
         ],

@@ -24,5 +24,5 @@ abstract class SensorService extends ChangeNotifier {
   double getSalinity() => _salinity;
   int getMoisture() => _moisture;
 
-  Future<void> init();
+  Future<SensorService> init();
 }

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class Plant {
@@ -11,17 +10,18 @@ class Plant {
   late String maxMoisture;
   late String minTemperature;
   late String maxTemperature;
+  late String salinity;
 
-  Plant({
-    required this.name,
-    required this.latinName,
-    required this.minPh,
-    required this.maxPh,
-    required this.minMoisture,
-    required this.maxMoisture,
-    required this.minTemperature,
-    required this.maxTemperature,
-  });
+  Plant(
+      {required this.name,
+      required this.latinName,
+      required this.minPh,
+      required this.maxPh,
+      required this.minMoisture,
+      required this.maxMoisture,
+      required this.minTemperature,
+      required this.maxTemperature,
+      required this.salinity});
 
   static List<Plant> _cache = List.empty();
 
@@ -46,5 +46,6 @@ class Plant {
     maxMoisture = plant["maxMoisture"];
     minTemperature = plant["minTemperature"];
     maxTemperature = plant["maxTemperature"];
+    salinity = plant["salinity"];
   }
 }
