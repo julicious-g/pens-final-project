@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 abstract class SensorService extends ChangeNotifier {
-  late double _ph;
-  late double _salinity;
-  late int _moisture;
+  late double _ph = 0;
+  late double _salinity = 0;
+  late int _moisture = 0;
 
   @protected
   void setPh(double ph) {
