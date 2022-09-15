@@ -1,4 +1,6 @@
+import 'package:final_project/services/recommendation/plant_recommendation_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../models/plant.dart';
 
@@ -11,6 +13,11 @@ class PlantRecomendationPage extends StatefulWidget {
 }
 
 class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
+  late PlantRecommendationService _service;
+  _PlantRecommendationPageState() {
+    _service = GetIt.instance<PlantRecommendationService>();
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Plant>>(
