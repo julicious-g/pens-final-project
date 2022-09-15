@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:final_project/models/sensors_model.dart';
 
 class DummySensorService extends SensorService {
-  late SensorsModel _sensorValue;
-
   @override
   Future<SensorService> init() async {
     _randomizeSensorValue();
