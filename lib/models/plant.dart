@@ -2,15 +2,16 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 class Plant {
+  late String id;
   late String name;
   late String latinName;
-  late String minPh;
-  late String maxPh;
-  late String minMoisture;
-  late String maxMoisture;
-  late String minTemperature;
-  late String maxTemperature;
-  late String salinity;
+  late double minPh;
+  late double maxPh;
+  late double minMoisture;
+  late double maxMoisture;
+  late double minTemperature;
+  late double maxTemperature;
+  late double salinity;
 
   Plant(
       {required this.name,
@@ -38,6 +39,7 @@ class Plant {
   }
 
   Plant.fromJson(Map<String, dynamic> plant) {
+    id = plant["id"];
     name = plant["name"];
     latinName = plant["latinName"];
     minPh = plant["minPh"];

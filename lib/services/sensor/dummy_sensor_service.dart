@@ -24,6 +24,6 @@ class DummySensorService extends SensorService {
     setMoisture(moisture);
     notifyListeners();
 
-    Timer(const Duration(seconds: 2), _randomizeSensorValue);
+    // Timer(const Duration(seconds: 2), _randomizeSensorValue);
   }
 }
