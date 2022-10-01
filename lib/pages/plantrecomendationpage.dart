@@ -20,66 +20,89 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Plant>>(
-      future: Plant.fromFile(),
-      builder: (context, snapshot) {
-        if (!isDone(snapshot.connectionState)) {
-          return const CircularProgressIndicator();
-        }
+    var plantIds = _service.plantIdsOrderedByProperties();
+    return ListView.builder(
+        itemCount: plantIds.length,
+        itemBuilder: (context, index) {
+          var plant = _service.plant(plantIds[index]);
 
-        if (snapshot.hasError) {
-          // try to display error message
-        }
+          return _plantCard(plant);
+        });
+  }
 
-        return ListView.builder(
-            itemCount: snapshot.data?.length ?? 0,
-            itemBuilder: (context, index) {
-              var plant = snapshot.data![index];
-
-              return Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        plant.name,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(plant.latinName),
-                      Column(
-                        children: const [Divider()],
-                      ),
-                      // Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          _plantDetail(
-                              plant.minPh, plant.maxPh, "", Icons.science),
-                          _plantDetail(plant.minMoisture, plant.maxMoisture,
-                              "%", Icons.water_drop),
-                          _plantDetail(plant.minTemperature,
-                              plant.maxTemperature, "C", Icons.thermostat),
-                        ],
-                      )
-                    ],
-                  ),
+  Widget _plantCard(Plant plant) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      plant.name,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text(plant.latinName)
+                  ],
                 ),
-              );
-            });
-      },
+                _matchIcon(plant)
+              ],
+            ),
+            Column(
+              children: const [Divider()],
+            ),
+            // Divider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _plantAcidityDetail(plant),
+                _plantSalinityDetail(plant)
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 
-  Widget _plantDetail(
-      String minValue, String maxValue, String unit, IconData icon) {
+  Widget _plantAcidityDetail(Plant plant) {
+    var color =
+        _service.isMatch("ph", plant) ? Colors.greenAccent : Colors.orange;
+
     return Column(
       children: [
-        Icon(icon),
-        Text("$minValue - $maxValue $unit"),
+        Icon(Icons.science, color: color),
+        Text("${plant.minPh} - ${plant.maxPh}"),
       ],
     );
+  }
+
+  Widget _plantSalinityDetail(Plant plant) {
+    var color = _service.isMatch("salinity", plant)
+        ? Colors.greenAccent
+        : Colors.orange;
+
+    return Column(
+      children: [
+        Icon(Icons.electric_bolt, color: color),
+        Text("${plant.salinity} dS/cm"),
+      ],
+    );
+  }
+
+  Widget _matchIcon(Plant plant) {
+    if (_service.isMatchAll(plant)) {
+      return const Icon(Icons.check_circle_outline_outlined,
+          color: Colors.greenAccent);
+    }
+
+    return const Icon(Icons.warning, color: Colors.orange);
   }
 
   bool isDone(ConnectionState state) => state == ConnectionState.done;
