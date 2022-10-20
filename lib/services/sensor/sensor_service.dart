@@ -3,6 +3,8 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 
 abstract class SensorService extends ChangeNotifier {
+  static const int _queueLimit = 100;
+
   final Queue<double> _phs = Queue<double>();
   final Queue<double> _salinities = Queue<double>();
   final Queue<int> _moistures = Queue<int>();
@@ -44,7 +46,7 @@ abstract class SensorService extends ChangeNotifier {
 
   void _addToQueue<T>(Queue<T> list, T value) {
     list.add(value);
-    if (list.length > 100) {
+    if (list.length > _queueLimit) {
       list.removeFirst();
     }
   }
