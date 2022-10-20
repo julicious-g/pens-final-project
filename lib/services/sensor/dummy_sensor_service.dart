@@ -15,10 +15,12 @@ class DummySensorService extends SensorService {
     var ph = Random(seed).nextDouble() + Random(seed).nextInt(14);
     var salinity = Random(seed).nextDouble() + Random(seed).nextInt(5);
     var moisture = Random(seed).nextInt(100);
+    var temperature = Random(seed).nextInt(9) + 20;
 
     setPh(ph);
     setSalinity(salinity);
     setMoisture(moisture);
+    setTemperature(temperature.toDouble());
     notifyListeners();
 
     // Timer(const Duration(seconds: 2), _randomizeSensorValue);

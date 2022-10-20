@@ -20,13 +20,18 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
 
   @override
   Widget build(BuildContext context) {
-    var plantIds = _service.plantIdsOrderedByProperties();
-    return ListView.builder(
-        itemCount: plantIds.length,
-        itemBuilder: (context, index) {
-          var plant = _service.plant(plantIds[index]);
+    return AnimatedBuilder(
+        animation: _service.listenable(),
+        builder: (context, child) {
+          var plantIds = _service.plantIdsOrderedByProperties();
 
-          return _plantCard(plant);
+          return ListView.builder(
+              itemCount: plantIds.length,
+              itemBuilder: (context, index) {
+                var plant = _service.plant(plantIds[index]);
+
+                return _plantCard(plant);
+              });
         });
   }
 

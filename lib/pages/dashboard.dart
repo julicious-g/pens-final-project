@@ -13,43 +13,8 @@ class Dashboard extends StatelessWidget {
     return Center(
         child: Column(
       children: <Widget>[
-        Expanded(
-            child: Card(
-          child: Center(
-            child: ListTile(
-              leading: const Icon(Icons.science),
-              title: AnimatedBuilder(
-                animation: _sensorService,
-                builder: (context, child) {
-                  return Text(_sensorService.getPh().toStringAsFixed(2),
-                      style: const TextStyle(
-                          fontSize: 32, fontWeight: FontWeight.bold));
-                },
-              ),
-              subtitle: const Text("pH"),
-            ),
-          ),
-          elevation: 10,
-        )),
-        Expanded(
-            child: Card(
-          child: Center(
-            child: ListTile(
-              leading: const Icon(Icons.bolt),
-              title: AnimatedBuilder(
-                  animation: _sensorService,
-                  builder: (context, child) {
-                    return Text(
-                      "${_sensorService.getSalinity().toStringAsFixed(2)} dS/cm",
-                      style: const TextStyle(
-                          fontSize: 32, fontWeight: FontWeight.bold),
-                    );
-                  }),
-              subtitle: const Text("Salinity"),
-            ),
-          ),
-          elevation: 10,
-        )),
+        _cardPh(),
+        _cardTemperature(),
         Expanded(
             child: Card(
           child: Center(
@@ -72,6 +37,48 @@ class Dashboard extends StatelessWidget {
       ],
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.stretch,
+    ));
+  }
+
+  Widget _cardPh() {
+    return Expanded(
+        child: Card(
+      child: Center(
+        child: ListTile(
+          leading: const Icon(Icons.science),
+          title: AnimatedBuilder(
+            animation: _sensorService,
+            builder: (context, child) {
+              return Text(_sensorService.getPh().toStringAsFixed(2),
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold));
+            },
+          ),
+          subtitle: const Text("pH"),
+        ),
+      ),
+      elevation: 10,
+    ));
+  }
+
+  Widget _cardTemperature() {
+    return Expanded(
+        child: Card(
+      child: Center(
+        child: ListTile(
+          leading: const Icon(Icons.thermostat),
+          title: AnimatedBuilder(
+            animation: _sensorService,
+            builder: (context, child) {
+              return Text(_sensorService.getTemperature().toStringAsFixed(2),
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold));
+            },
+          ),
+          subtitle: const Text("Celcius"),
+        ),
+      ),
+      elevation: 10,
     ));
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:http/http.dart' as Http;
@@ -13,7 +14,7 @@ class HttpSensorService extends SensorService {
 
   @override
   Future<SensorService> init() async {
-    timer = Timer.periodic(const Duration(seconds: 1), (t) async {
+    timer = Timer.periodic(const Duration(seconds: 5), (t) async {
       await _makeHttpRequest();
     });
 
@@ -21,11 +22,21 @@ class HttpSensorService extends SensorService {
   }
 
   Future<void> _makeHttpRequest() async {
-    var url = Uri.https(_url, 'fact');
+    var url = Uri.https(_url, _path);
     var response = await Http.get(url);
     print('Response status: ${response.statusCode}');
     print("Response body: ${response.body}");
 
-    // notifyListeners();
+    // if (response.statusCode != 200) {
+    //   return;
+    // }
+
+    // var sensor = jsonDecode(response.body);
+
+    // setPh(sensor["ph"]);
+    // setTemperature(sensor["temperature"]);
+    // setMoisture(sensor["moisture"]);
+
+    notifyListeners();
   }
 }

@@ -1,4 +1,5 @@
 import 'package:final_project/services/sensor/sensor_service.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import '../../models/plant.dart';
 
@@ -17,6 +18,7 @@ class PlantRecommendationService {
 
   List<String> plantIds() => _plantMap.entries.map((e) => e.key).toList();
   Plant plant(String key) => _plantMap[key]!;
+  Listenable listenable() => _sensorService;
 
   List<String> plantIdsOrderedByProperties() {
     var plantList = plantIds();
