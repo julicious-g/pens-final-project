@@ -30,6 +30,7 @@ abstract class SensorService extends ChangeNotifier {
     _addToQueue(_temperatures, temperature);
   }
 
+  // all of sensors values are the average of values retrieve from arduino
   double getPh() =>
       _phs.reduce((value, element) => value + element) / _phs.length;
   double getSalinity() =>
