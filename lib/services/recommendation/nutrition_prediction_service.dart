@@ -1,3 +1,5 @@
+import 'package:final_project/models/nutrition_prediction_model.dart';
+
 class NutritionPredictionService {
   static NutritionPredictionModel phosporus(double ph) {
     var value = -51.86 * ph + 433.47;
@@ -39,19 +41,4 @@ class NutritionPredictionService {
         chemicalName: "",
         model: "y = 1.6648ph - 1.0236");
   }
-}
-
-class NutritionPredictionModel {
-  late String name;
-  late String unit;
-  late double value;
-  late String chemicalName;
-  late String model;
-
-  NutritionPredictionModel(
-      {this.name = "",
-      this.unit = "",
-      this.value = 0.0,
-      this.chemicalName = "",
-      this.model = ""});
 }
