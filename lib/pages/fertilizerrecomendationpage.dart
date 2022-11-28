@@ -1,71 +1,77 @@
 // ignore_for_file: unnecessary_brace_in_string_interps
 
+import 'package:final_project/models/nutrition_prediction_model.dart';
+import 'package:final_project/services/recommendation/nutrition_prediction_service.dart';
+import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-class FertilizerRecommendationPage extends StatefulWidget {
-  const FertilizerRecommendationPage({Key? key}) : super(key: key);
+class FertilizerRecommendationPage extends StatelessWidget {
+  late SensorService _sensorService;
 
-  @override
-  State<FertilizerRecommendationPage> createState() =>
-      _FertilizerReccomendationPageState();
-}
-
-class _FertilizerReccomendationPageState
-    extends State<FertilizerRecommendationPage> {
-  double _value = 6;
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      children: [
-        Expanded(
-          child: Card(
-              child: Slider(
-                  divisions: 60,
-                  min: 4,
-                  max: 10,
-                  value: _value,
-                  onChanged: (value) {
-                    setState(() {
-                      _value = value;
-                    });
-                  },
-                  label: '$_value')),
-        ),
-        _nutritionCard("Nitrogen", "%", _nitrogen(_value)),
-        _nutritionCard("Phosporus", "ppm", _phosporus(_value)),
-        _nutritionCard("Pottasium", "ppm", _pottasium(_value)),
-      ],
-    ));
+  FertilizerRecommendationPage() {
+    _sensorService = GetIt.instance<SensorService>();
   }
 
-  Widget _nutritionCard(String nutrition, String unit, double value) {
-    return Expanded(
-      child: Card(child: Text("${nutrition} : ${value}  ${unit}")),
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _sensorService,
+      builder: (context, child) {
+        var cec = NutritionPredictionService.cec(_sensorService.getPh());
+        var phosporus =
+            NutritionPredictionService.phosporus(_sensorService.getPh());
+        var pottasium = NutritionPredictionService.pottasium(
+            _sensorService.getPh(), cec.value);
+        var nitrogen = NutritionPredictionService.nitrogen(
+            _sensorService.getMoisture(), _sensorService.getTemperature());
+        return Center(
+            child: Column(
+          children: [
+            _nutritionCard(nitrogen),
+            _nutritionCard(phosporus),
+            _nutritionCard(pottasium)
+          ],
+        ));
+      },
     );
   }
 
-  double _nitrogen(double ph) {
-    var a = -0.056;
-    var b = 0.54;
-    var nitrogen = _regression(ph, a, b) * 100;
-
-    return nitrogen.roundToDouble();
-  }
-
-  double _phosporus(double ph) {
-    var a = -51.86;
-    var b = 433.47;
-    return _regression(ph, a, b);
-  }
-
-  double _pottasium(double ph) {
-    var a = -3.8964;
-    var b = 81.012;
-    return _regression(ph, a, b);
-  }
-
-  double _regression(double x, double a, double b) {
-    return (a * x + b);
+  Widget _nutritionCard(NutritionPredictionModel model) {
+    return Expanded(
+      child: Card(
+          child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "${model.name} (${model.chemicalName})",
+              style: const TextStyle(fontSize: 20),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  model.value.toStringAsFixed(2),
+                  style: const TextStyle(
+                      fontSize: 40, fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  model.unit,
+                  style: const TextStyle(fontSize: 15, color: Colors.grey),
+                )
+              ],
+            )
+          ],
+        ),
+      )),
+    );
   }
 }

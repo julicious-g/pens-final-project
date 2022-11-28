@@ -23,6 +23,6 @@ class DummySensorService extends SensorService {
     setTemperature(temperature.toDouble());
     notifyListeners();
 
-    // Timer(const Duration(seconds: 2), _randomizeSensorValue);
+    Timer(const Duration(seconds: 2), _randomizeSensorValue);
   }
 }

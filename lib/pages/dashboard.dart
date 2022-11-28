@@ -24,7 +24,7 @@ class Dashboard extends StatelessWidget {
                   animation: _sensorService,
                   builder: (context, child) {
                     return Text(
-                      "${_sensorService.getMoisture()} %",
+                      "${_sensorService.getMoisture().round()} %",
                       style: const TextStyle(
                           fontSize: 32, fontWeight: FontWeight.bold),
                     );

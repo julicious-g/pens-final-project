@@ -16,10 +16,9 @@ Future<void> main() async {
 }
 
 Future<void> setupServices() async {
-  GetIt.I.registerSingleton<SensorService>(await DummySensorService().init());
-  // GetIt.I.registerSingleton<SensorService>(await HttpSensorService().init());
-  GetIt.I.registerSingleton<PlantRecommendationService>(
-      await PlantRecommendationService().init());
+  // GetIt.I.registerSingleton<SensorService>(await DummySensorService().init());
+  GetIt.I.registerSingleton<SensorService>(await HttpSensorService().init());
+  // GetIt.I.registerSingleton<PlantRecommendationService>(
 }
 
 class FinalProjectApp extends StatelessWidget {
