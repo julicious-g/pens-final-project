@@ -21,7 +21,7 @@ class _MainScreenPageState extends State<MainScreenPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.device_thermostat), label: "Dashboard"),
-          BottomNavigationBarItem(icon: Icon(Icons.park), label: "Plant"),
+          // BottomNavigationBarItem(icon: Icon(Icons.park), label: "Plant"),
           BottomNavigationBarItem(
               icon: Icon(Icons.science), label: "Fertilizer")
         ],
@@ -35,7 +35,7 @@ class _MainScreenPageState extends State<MainScreenPage> {
         index: _pageIndex,
         children: <Widget>[
           Dashboard(),
-          const PlantRecomendationPage(),
+          // const PlantRecomendationPage(),
           FertilizerRecommendationPage()
         ],
       ),
