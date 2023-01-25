@@ -1,3 +1,4 @@
+import 'package:final_project/models/attributes.dart';
 import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -14,6 +15,7 @@ class PlantRecommendationService {
 
     _sensorCheckFunctions["ph"] = _ispHMatch;
     _sensorCheckFunctions["salinity"] = _isSalinityMatch;
+    _sensorCheckFunctions["temperature"] = _isSalinityMatch;
   }
 
   List<String> plantIds() => _plantMap.entries.map((e) => e.key).toList();
@@ -23,7 +25,7 @@ class PlantRecommendationService {
   List<String> plantIdsOrderedByProperties() {
     var plantList = plantIds();
 
-    plantList.sort((b, a) => matchedCount(a).compareTo(matchedCount(b)));
+    // plantList.sort((b, a) => matchedCount(a).compareTo(matchedCount(b)));
     return plantList;
   }
 
@@ -42,6 +44,21 @@ class PlantRecommendationService {
     return matchCount;
   }
 
+  String atrributeLevel(String attributeType, Plant plant) {
+    Map<String, dynamic> attribute = plant.attributes[attributeType];
+    String result = "N";
+
+    attribute.forEach((key, value) {
+      var sensorValue = _sensorService.getSensorValue(attributeType) ?? 0.0;
+
+      if (sensorValue >= value["min"] && sensorValue <= value["max"]) {
+        result = key.toUpperCase();
+      }
+    });
+
+    return result;
+  }
+
   bool isMatchAll(Plant plant) {
     var ret = true;
 
@@ -56,13 +73,21 @@ class PlantRecommendationService {
   }
 
   bool _ispHMatch(Plant plant) {
-    var sensorPh = _sensorService.getPh();
+    var sensorPh = _sensorService.getSensorValue(PlantAttribute.ph) ?? 0;
 
     return sensorPh <= plant.maxPh && sensorPh >= plant.minPh;
   }
 
+  bool _isTemperatureMatch(Plant plant) {
+    return false;
+  }
+
+  bool _isMoistureMatch(Plant plant) {
+    return false;
+  }
+
   bool _isSalinityMatch(Plant plant) {
-    var sensorSalinity = _sensorService.getSalinity();
+    var sensorSalinity = 0;
 
     return sensorSalinity <= plant.salinity;
   }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:final_project/models/attributes.dart';
 import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:final_project/models/sensors_model.dart';
 
@@ -17,10 +18,10 @@ class DummySensorService extends SensorService {
     var moisture = Random(seed).nextInt(100);
     var temperature = Random(seed).nextInt(9) + 20;
 
-    setPh(ph);
-    setSalinity(salinity);
-    setMoisture(moisture);
-    setTemperature(temperature.toDouble());
+    setSensorValue(PlantAttribute.ph, ph);
+    setSensorValue(PlantAttribute.temperature, ph);
+    setSensorValue(PlantAttribute.moisture, ph);
+
     notifyListeners();
 
     Timer(const Duration(seconds: 2), _randomizeSensorValue);

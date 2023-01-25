@@ -16,9 +16,10 @@ Future<void> main() async {
 }
 
 Future<void> setupServices() async {
-  // GetIt.I.registerSingleton<SensorService>(await DummySensorService().init());
-  GetIt.I.registerSingleton<SensorService>(await HttpSensorService().init());
-  // GetIt.I.registerSingleton<PlantRecommendationService>(
+  GetIt.I.registerSingleton<SensorService>(await DummySensorService().init());
+  // GetIt.I.registerSingleton<SensorService>(await HttpSensorService().init());
+  GetIt.I.registerSingleton<PlantRecommendationService>(
+      await PlantRecommendationService().init());
 }
 
 class FinalProjectApp extends StatelessWidget {
@@ -28,7 +29,7 @@ class FinalProjectApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Final Project',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -42,6 +43,7 @@ class FinalProjectApp extends StatelessWidget {
         primarySwatch: Colors.lightGreen,
       ),
       home: MainScreenPage(),
+      initialRoute: "/",
     );
   }
 }

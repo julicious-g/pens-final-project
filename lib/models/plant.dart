@@ -12,6 +12,12 @@ class Plant {
   late double minTemperature;
   late double maxTemperature;
   late double salinity;
+  late dynamic ph;
+  late dynamic temperature;
+  late dynamic moisture;
+  late Map<String, dynamic> attributes;
+
+  Plant.empty();
 
   Plant(
       {required this.name,
@@ -31,7 +37,7 @@ class Plant {
       return _cache;
     }
 
-    var json = await rootBundle.loadString("data/plant.json");
+    var json = await rootBundle.loadString("./assets/data/plant.json");
     List decodedJson = jsonDecode(json);
     _cache = decodedJson.map((e) => Plant.fromJson(e)).toList();
     // await Future.delayed(const Duration(seconds: 3));
@@ -42,12 +48,22 @@ class Plant {
     id = plant["id"];
     name = plant["name"];
     latinName = plant["latinName"];
-    minPh = plant["minPh"];
-    maxPh = plant["maxPh"];
-    minMoisture = plant["minMoisture"];
-    maxMoisture = plant["maxMoisture"];
-    minTemperature = plant["minTemperature"];
-    maxTemperature = plant["maxTemperature"];
-    salinity = plant["salinity"];
+    minPh = double.parse(plant["minPh"].toString());
+    maxPh = double.parse(plant["maxPh"].toString());
+    minMoisture = double.parse(plant["minMoisture"].toString());
+    maxMoisture = double.parse(plant["maxMoisture"].toString());
+    minTemperature = double.parse(plant["minTemperature"].toString());
+    maxTemperature = double.parse(plant["maxTemperature"].toString());
+    salinity = double.parse(plant["salinity"].toString());
+
+    attributes = {};
+
+    attributes["ph"] = plant["ph"];
+    attributes["temperature"] = plant["temperature"];
+    attributes["moisture"] = plant["moisture"];
+
+    ph = plant["ph"];
+    temperature = plant["temperature"];
+    moisture = plant["moisture"];
   }
 }

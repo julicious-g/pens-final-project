@@ -2,6 +2,8 @@ import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
+import '../models/attributes.dart';
+
 class Dashboard extends StatelessWidget {
   late SensorService _sensorService;
   Dashboard() {
@@ -24,7 +26,7 @@ class Dashboard extends StatelessWidget {
                   animation: _sensorService,
                   builder: (context, child) {
                     return Text(
-                      "${_sensorService.getMoisture().round()} %",
+                      "${_sensorService.getSensorValue(PlantAttribute.moisture)!.round()} %",
                       style: const TextStyle(
                           fontSize: 32, fontWeight: FontWeight.bold),
                     );
@@ -49,7 +51,10 @@ class Dashboard extends StatelessWidget {
           title: AnimatedBuilder(
             animation: _sensorService,
             builder: (context, child) {
-              return Text(_sensorService.getPh().toStringAsFixed(2),
+              return Text(
+                  _sensorService
+                      .getSensorValue(PlantAttribute.ph)!
+                      .toStringAsFixed(2),
                   style: const TextStyle(
                       fontSize: 32, fontWeight: FontWeight.bold));
             },
@@ -70,7 +75,10 @@ class Dashboard extends StatelessWidget {
           title: AnimatedBuilder(
             animation: _sensorService,
             builder: (context, child) {
-              return Text(_sensorService.getTemperature().toStringAsFixed(2),
+              return Text(
+                  _sensorService
+                      .getSensorValue(PlantAttribute.temperature)!
+                      .toStringAsFixed(2),
                   style: const TextStyle(
                       fontSize: 32, fontWeight: FontWeight.bold));
             },

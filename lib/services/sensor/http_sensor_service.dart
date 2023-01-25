@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:final_project/models/attributes.dart';
 import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:http/http.dart' as Http;
 
 class HttpSensorService extends SensorService {
   static const String _url = '192.168.4.1';
-  static const String _path = 'health';
+  static const String _path = 'sensor';
   // static const String _url = 'catfact.ninja'; // for testing purpose
   // static const String _path = 'fact'; // for testing purpose
 
@@ -17,6 +18,10 @@ class HttpSensorService extends SensorService {
     timer = Timer.periodic(const Duration(seconds: 1), (t) async {
       await _makeHttpRequest();
     });
+
+    setSensorValue(PlantAttribute.ph, 0.0);
+    setSensorValue(PlantAttribute.temperature, 0.0);
+    setSensorValue(PlantAttribute.moisture, 0.0);
 
     return this;
   }
@@ -36,9 +41,11 @@ class HttpSensorService extends SensorService {
 
     var sensor = jsonDecode(response.body);
 
-    setPh(sensor["ph"]);
-    setTemperature(sensor["temperature"]);
-    setMoisture(sensor["moisture"]);
+    setSensorValue(PlantAttribute.ph, double.parse(sensor["ph"].toString()));
+    setSensorValue(PlantAttribute.temperature,
+        double.parse(sensor["temperature"].toString()));
+    setSensorValue(
+        PlantAttribute.moisture, double.parse(sensor["moisture"].toString()));
 
     notifyListeners();
   }

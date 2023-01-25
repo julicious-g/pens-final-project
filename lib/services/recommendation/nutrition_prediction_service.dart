@@ -5,10 +5,20 @@ class NutritionPredictionService {
     var value = -51.86 * ph + 433.47;
     return NutritionPredictionModel(
         name: "Phosporus",
-        unit: "ppm",
+        unit: "mg/kg",
         value: value,
         chemicalName: "P2O5",
         model: "y = -51.86 * ph + 433.47");
+  }
+
+  static NutritionPredictionModel phosporus2(double ph, double cec) {
+    var value = 55.57924 + (-4.00611) * ph + (0.63728) * cec;
+    return NutritionPredictionModel(
+        name: "Phosporus",
+        unit: "mg/kg",
+        value: value,
+        chemicalName: "P2O5",
+        model: "y = 55.57924 + (-4.00611) pH + (0.63728)CEC");
   }
 
   static NutritionPredictionModel pottasium(double ph, double cec) {

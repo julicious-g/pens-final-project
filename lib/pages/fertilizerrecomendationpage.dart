@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_brace_in_string_interps
 
+import 'package:final_project/models/attributes.dart';
 import 'package:final_project/models/nutrition_prediction_model.dart';
 import 'package:final_project/services/recommendation/nutrition_prediction_service.dart';
 import 'package:final_project/services/sensor/sensor_service.dart';
@@ -18,13 +19,17 @@ class FertilizerRecommendationPage extends StatelessWidget {
     return AnimatedBuilder(
       animation: _sensorService,
       builder: (context, child) {
-        var cec = NutritionPredictionService.cec(_sensorService.getPh());
-        var phosporus =
-            NutritionPredictionService.phosporus(_sensorService.getPh());
-        var pottasium = NutritionPredictionService.pottasium(
-            _sensorService.getPh(), cec.value);
-        var nitrogen = NutritionPredictionService.nitrogen(
-            _sensorService.getMoisture(), _sensorService.getTemperature());
+        var ph = _sensorService.getSensorValue(PlantAttribute.ph) ?? 0;
+        var moisture =
+            _sensorService.getSensorValue(PlantAttribute.moisture) ?? 0;
+        var temperature =
+            _sensorService.getSensorValue(PlantAttribute.temperature) ?? 0;
+        var cec = NutritionPredictionService.cec(ph);
+        var phosporus = NutritionPredictionService.phosporus2(ph, cec.value);
+        var pottasium = NutritionPredictionService.pottasium(ph, cec.value);
+        var nitrogen =
+            NutritionPredictionService.nitrogen(moisture, temperature);
+
         return Center(
             child: Column(
           children: [
