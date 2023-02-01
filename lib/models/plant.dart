@@ -1,6 +1,33 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
+class FeasibilityPerformance{
+  late double min;
+  late double max;
+  late double importance;
+
+  FeasibilityPerformance({required this.min, required this.max});
+
+  FeasibilityPerformance.fromJson(Map<String, dynamic> json,this.importance){
+    min = json["min"];
+    max = json["max"];
+  }
+}
+
+class FeasibilityClass{
+  late final FeasibilityPerformance s1;
+  late final FeasibilityPerformance s2;
+  late final FeasibilityPerformance s3;
+
+  FeasibilityClass({required this.s1, required this.s2, required this.s3});
+
+  FeasibilityClass.fromJson(Map<String,dynamic> json){
+    s1 = FeasibilityPerformance.fromJson(json["s1"],3);
+    s2 = FeasibilityPerformance.fromJson(json["s2"],2);
+    s3 = FeasibilityPerformance.fromJson(json["s3"],1);
+  }
+}
+
 class Plant {
   late String id;
   late String name;
@@ -12,10 +39,10 @@ class Plant {
   late double minTemperature;
   late double maxTemperature;
   late double salinity;
-  late dynamic ph;
-  late dynamic temperature;
-  late dynamic moisture;
-  late Map<String, dynamic> attributes;
+  late FeasibilityClass ph;
+  late FeasibilityClass temperature;
+  late FeasibilityClass moisture;
+  // late Map<String, dynamic> attributes;
 
   Plant.empty();
 
@@ -48,22 +75,8 @@ class Plant {
     id = plant["id"];
     name = plant["name"];
     latinName = plant["latinName"];
-    minPh = double.parse(plant["minPh"].toString());
-    maxPh = double.parse(plant["maxPh"].toString());
-    minMoisture = double.parse(plant["minMoisture"].toString());
-    maxMoisture = double.parse(plant["maxMoisture"].toString());
-    minTemperature = double.parse(plant["minTemperature"].toString());
-    maxTemperature = double.parse(plant["maxTemperature"].toString());
-    salinity = double.parse(plant["salinity"].toString());
-
-    attributes = {};
-
-    attributes["ph"] = plant["ph"];
-    attributes["temperature"] = plant["temperature"];
-    attributes["moisture"] = plant["moisture"];
-
-    ph = plant["ph"];
-    temperature = plant["temperature"];
-    moisture = plant["moisture"];
+    ph = FeasibilityClass.fromJson(plant["ph"]);
+    moisture = FeasibilityClass.fromJson(plant["moisture"]);
+    temperature = FeasibilityClass.fromJson(plant["temperature"]);
   }
 }

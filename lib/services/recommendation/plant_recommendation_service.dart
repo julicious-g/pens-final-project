@@ -19,20 +19,85 @@ class PlantRecommendationService {
   }
 
   List<String> plantIds() => _plantMap.entries.map((e) => e.key).toList();
+
   Plant plant(String key) => _plantMap[key]!;
+
   Listenable listenable() => _sensorService;
 
   List<String> plantIdsOrderedByProperties() {
-    var plantList = plantIds();
+    var plantList = _plantMap.values.toList();
 
-    // plantList.sort((b, a) => matchedCount(a).compareTo(matchedCount(b)));
-    return plantList;
+    plantList.sort((b, a) => getTotalFeasibilitiesImportance(a).compareTo(getTotalFeasibilitiesImportance(b)));
+    return plantList.map((e) => e.id).toList();
   }
 
   Future<PlantRecommendationService> init() async {
     var plants = await Plant.fromFile();
     _plantMap = {for (var p in plants) p.id: p};
     return this;
+  }
+
+  bool isFeasible(double value, FeasibilityPerformance feasibilityPerformance) {
+    return value >= feasibilityPerformance.min &&
+        value <= feasibilityPerformance.max;
+  }
+
+  @protected
+  double getTotalFeasibilitiesImportance(Plant plant) {
+    var sensorPhValue = _sensorService.getSensorValue(PlantAttribute.ph) ?? 0;
+    var sensorMoistureValue =
+        _sensorService.getSensorValue(PlantAttribute.moisture) ?? 0;
+    var sensorTemperatureValue =
+        _sensorService.getSensorValue(PlantAttribute.temperature) ?? 0;
+
+    return getFeasibilityImportance(plant.ph, sensorPhValue) +
+        getFeasibilityImportance(plant.moisture, sensorMoistureValue) +
+        getFeasibilityImportance(plant.temperature, sensorTemperatureValue);
+  }
+
+  @protected
+  double getFeasibilityImportance(
+      FeasibilityClass feasibilityClass, double sensorValue) {
+    if (isFeasible(sensorValue, feasibilityClass.s1)) {
+      return 3;
+    } else if (isFeasible(sensorValue, feasibilityClass.s2)) {
+      return 2;
+    } else if (isFeasible(sensorValue, feasibilityClass.s3)) {
+      return 1;
+    }
+    return 0;
+  }
+
+  @protected
+  String getFeasibilityLevel(
+      double sensorValue, FeasibilityClass feasibilityClass) {
+    if (isFeasible(sensorValue, feasibilityClass.s1)) {
+      return "S1";
+    } else if (isFeasible(sensorValue, feasibilityClass.s2)) {
+      return "S2";
+    } else if (isFeasible(sensorValue, feasibilityClass.s3)) {
+      return "S3";
+    }
+
+    return "N";
+  }
+
+  String phFeasibilityLevel(Plant plant) {
+    var sensorValue = _sensorService.getSensorValue(PlantAttribute.ph) ?? 0;
+
+    return getFeasibilityLevel(sensorValue, plant.ph);
+  }
+
+  String moistureFeasibilityLevel(Plant plant) {
+    var sensorValue =
+        _sensorService.getSensorValue(PlantAttribute.moisture) ?? 0;
+    return getFeasibilityLevel(sensorValue, plant.moisture);
+  }
+
+  String temperatureFeasibilityLevel(Plant plant) {
+    var sensorValue =
+        _sensorService.getSensorValue(PlantAttribute.temperature) ?? 0;
+    return getFeasibilityLevel(sensorValue, plant.temperature);
   }
 
   int matchedCount(String plantId) {
@@ -42,21 +107,6 @@ class PlantRecommendationService {
         matchCount = value(plant) ? matchCount + 1 : matchCount);
 
     return matchCount;
-  }
-
-  String atrributeLevel(String attributeType, Plant plant) {
-    Map<String, dynamic> attribute = plant.attributes[attributeType];
-    String result = "N";
-
-    attribute.forEach((key, value) {
-      var sensorValue = _sensorService.getSensorValue(attributeType) ?? 0.0;
-
-      if (sensorValue >= value["min"] && sensorValue <= value["max"]) {
-        result = key.toUpperCase();
-      }
-    });
-
-    return result;
   }
 
   bool isMatchAll(Plant plant) {

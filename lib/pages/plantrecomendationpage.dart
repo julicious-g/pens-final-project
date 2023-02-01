@@ -1,4 +1,3 @@
-import 'package:final_project/models/attributes.dart';
 import 'package:final_project/services/recommendation/plant_recommendation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -44,7 +43,7 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
         elevation: 10,
         child: InkWell(
           onTap: () {
-            print("Card on tap");
+            // print("Card on tap");
             Navigator.of(context).push(HeroDialogRoute(builder: (context) {
               return _AddTodoPopupCard(
                 plant: plant,
@@ -64,7 +63,7 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
                       children: [
                         Text(
                           plant.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text(plant.latinName)
@@ -82,22 +81,20 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.science, color: Colors.blue),
-                        Text(_service.atrributeLevel(PlantAttribute.ph, plant))
+                        const Icon(Icons.science, color: Colors.blue),
+                        Text(_service.phFeasibilityLevel(plant))
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(Icons.water_drop, color: Colors.blue),
-                        Text(_service.atrributeLevel(
-                            PlantAttribute.moisture, plant))
+                        const Icon(Icons.water_drop, color: Colors.blue),
+                        Text(_service.moistureFeasibilityLevel(plant))
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(Icons.thermostat, color: Colors.blue),
-                        Text(_service.atrributeLevel(
-                            PlantAttribute.temperature, plant))
+                        const Icon(Icons.thermostat, color: Colors.blue),
+                        Text(_service.temperatureFeasibilityLevel(plant))
                       ],
                     ),
                     // _plantAcidityDetail(plant),
@@ -110,40 +107,6 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
         ),
       ),
     );
-  }
-
-  Widget _plantAcidityDetail(Plant plant) {
-    var color =
-        _service.isMatch("ph", plant) ? Colors.greenAccent : Colors.orange;
-
-    return Column(
-      children: [
-        Icon(Icons.science, color: color),
-        Text("${plant.minPh} - ${plant.maxPh}"),
-      ],
-    );
-  }
-
-  Widget _plantSalinityDetail(Plant plant) {
-    var color = _service.isMatch("salinity", plant)
-        ? Colors.greenAccent
-        : Colors.orange;
-
-    return Column(
-      children: [
-        Icon(Icons.electric_bolt, color: color),
-        Text("${plant.salinity} dS/cm"),
-      ],
-    );
-  }
-
-  Widget _matchIcon(Plant plant) {
-    if (_service.isMatchAll(plant)) {
-      return const Icon(Icons.check_circle_outline_outlined,
-          color: Colors.greenAccent);
-    }
-
-    return const Icon(Icons.warning, color: Colors.orange);
   }
 
   bool isDone(ConnectionState state) => state == ConnectionState.done;
