@@ -1,5 +1,5 @@
 import 'package:final_project/pages/dashboard.dart';
-import 'package:final_project/pages/fertilizerrecomendationpage.dart';
+import 'package:final_project/pages/nutritionpredictionpage.dart';
 import 'package:final_project/pages/plantrecomendationpage.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +35,7 @@ class _MainScreenPageState extends State<MainScreenPage> {
         children: <Widget>[
           Dashboard(),
           const PlantRecomendationPage(),
-          FertilizerRecommendationPage()
+          NutritionRecommendationPage()
         ],
       ),
     );

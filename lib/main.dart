@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:final_project/main_screen_page.dart';
 import 'package:final_project/services/recommendation/plant_recommendation_service.dart';
 import 'package:final_project/services/sensor/dummy_sensor_service.dart';
-import 'package:final_project/services/sensor/http_sensor_service.dart';
 import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';

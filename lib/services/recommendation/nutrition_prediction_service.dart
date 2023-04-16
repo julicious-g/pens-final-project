@@ -1,10 +1,13 @@
+import 'dart:math';
+
+import 'package:equations/equations.dart';
 import 'package:final_project/models/nutrition_prediction_model.dart';
 
 class NutritionPredictionService {
-  static NutritionPredictionModel phosporus(double ph) {
+  static NutritionPredictionModel phosphorus(double ph) {
     var value = -51.86 * ph + 433.47;
     return NutritionPredictionModel(
-        name: "Phosporus",
+        name: "Phosphorus",
         unit: "mg/kg",
         value: value,
         chemicalName: "P2O5",
@@ -14,7 +17,7 @@ class NutritionPredictionService {
   static NutritionPredictionModel phosporus2(double ph, double cec) {
     var value = 55.57924 + (-4.00611) * ph + (0.63728) * cec;
     return NutritionPredictionModel(
-        name: "Phosporus",
+        name: "Phosphorus",
         unit: "mg/kg",
         value: value,
         chemicalName: "P2O5",
@@ -33,7 +36,21 @@ class NutritionPredictionService {
 
   static NutritionPredictionModel nitrogen(
       double soilMoisture, double temperature) {
-    var value = 39.12782 + (-3.23536 * soilMoisture) + 1.40814 * temperature;
+    soilMoisture = 3;
+    var ec = (-0.037 * pow(soilMoisture, 2)) + (0.362 * soilMoisture) - 0.306;
+    var c = (0.478 * -1) - ec;
+    var nitrogenEq = Quadratic(
+        a: const Complex.fromReal(0.0014),
+        b: const Complex.fromReal(0.0006 * -1),
+        c: Complex.fromReal(c));
+
+    var nitrogenSolutions = nitrogenEq.solutions();
+
+    for (Complex number in nitrogenSolutions) {
+      print(number.real);
+    }
+
+    var value = nitrogenSolutions[0].real;
     return NutritionPredictionModel(
         name: "Nitrogen",
         unit: "micrograms/gram",

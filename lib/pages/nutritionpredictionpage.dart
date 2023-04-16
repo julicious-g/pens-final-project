@@ -7,10 +7,10 @@ import 'package:final_project/services/sensor/sensor_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-class FertilizerRecommendationPage extends StatelessWidget {
+class NutritionRecommendationPage extends StatelessWidget {
   late SensorService _sensorService;
 
-  FertilizerRecommendationPage() {
+  NutritionRecommendationPage() {
     _sensorService = GetIt.instance<SensorService>();
   }
 
