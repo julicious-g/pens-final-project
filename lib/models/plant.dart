@@ -1,30 +1,32 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-class FeasibilityPerformance{
+class FeasibilityPerformance {
   late double min;
   late double max;
   late double importance;
 
   FeasibilityPerformance({required this.min, required this.max});
 
-  FeasibilityPerformance.fromJson(Map<String, dynamic> json,this.importance){
+  FeasibilityPerformance.fromJson(Map<String, dynamic> json, this.importance) {
     min = json["min"];
     max = json["max"];
   }
 }
 
-class FeasibilityClass{
+class FeasibilityClass {
+  late final bool ready;
   late final FeasibilityPerformance s1;
   late final FeasibilityPerformance s2;
   late final FeasibilityPerformance s3;
 
   FeasibilityClass({required this.s1, required this.s2, required this.s3});
 
-  FeasibilityClass.fromJson(Map<String,dynamic> json){
-    s1 = FeasibilityPerformance.fromJson(json["s1"],3);
-    s2 = FeasibilityPerformance.fromJson(json["s2"],2);
-    s3 = FeasibilityPerformance.fromJson(json["s3"],1);
+  FeasibilityClass.fromJson(Map<String, dynamic> json) {
+    ready = json["ready"] ?? false;
+    s1 = FeasibilityPerformance.fromJson(json["s1"], 3);
+    s2 = FeasibilityPerformance.fromJson(json["s2"], 2);
+    s3 = FeasibilityPerformance.fromJson(json["s3"], 1);
   }
 }
 
@@ -32,13 +34,6 @@ class Plant {
   late String id;
   late String name;
   late String latinName;
-  late double minPh;
-  late double maxPh;
-  late double minMoisture;
-  late double maxMoisture;
-  late double minTemperature;
-  late double maxTemperature;
-  late double salinity;
   late FeasibilityClass ph;
   late FeasibilityClass temperature;
   late FeasibilityClass moisture;
@@ -46,16 +41,10 @@ class Plant {
 
   Plant.empty();
 
-  Plant(
-      {required this.name,
-      required this.latinName,
-      required this.minPh,
-      required this.maxPh,
-      required this.minMoisture,
-      required this.maxMoisture,
-      required this.minTemperature,
-      required this.maxTemperature,
-      required this.salinity});
+  Plant({
+    required this.name,
+    required this.latinName,
+  });
 
   static List<Plant> _cache = List.empty();
 

@@ -3,17 +3,11 @@
     "id": "H001",
     "name": "Wortel",
     "latinName": "Daucus Carota",
-    "minTemperature": 16,
-    "maxTemperature": 18,
-    "minPh": 5.6,
-    "maxPh": 7,
-    "salinity": 3,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
+      "ready": true,
       "s1":{
         "min":5.6,
-        "max":5.7
+        "max":7.0
       },
       "s2":{
         "min":5.2,
@@ -29,6 +23,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":0,
         "max":0
@@ -47,6 +42,7 @@
       }
     },
     "temperature":{
+      "ready": true,
       "s1":{
         "min":16,
         "max":18
@@ -69,14 +65,8 @@
     "id": "H002",
     "name": "Kentang",
     "latinName": "Solanum tuberosu L.",
-    "minTemperature": 16,
-    "maxTemperature": 18,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
+      "ready": true,
       "s1":{
         "min":6,
         "max":7
@@ -95,6 +85,7 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
         "min":40,
         "max":80
@@ -113,6 +104,7 @@
       }
     },
     "temperature":{
+      "ready": true,
       "s1":{
         "min":16,
         "max":18
@@ -135,14 +127,8 @@
     "id": "H003",
     "name": "Bawang Putih",
     "latinName": "Allium sativum LINN",
-    "minTemperature": 20,
-    "maxTemperature": 25,
-    "minPh": 6,
-    "maxPh": 7.8,
-    "salinity": 2,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":20,
         "max":25
@@ -161,6 +147,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":-1,
         "max":-1
@@ -179,6 +166,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":6,
         "max":7.8
@@ -201,21 +189,15 @@
     "id": "H004",
     "name": "Bawang merah",
     "latinName": "Allium oscolonicum",
-    "minTemperature": 10,
-    "maxTemperature": 25,
-    "minPh": 6,
-    "maxPh": 7.8,
-    "salinity": 2,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":10,
         "max":25
       },
       "s2":{
         "min":5,
-        "max":10
+        "max":30
       },
       "s3":{
         "min":2,
@@ -227,6 +209,7 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
         "min":-1,
         "max":-1
@@ -245,6 +228,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":6,
         "max":7.8
@@ -267,14 +251,8 @@
     "id": "H005",
     "name": "Paprika",
     "latinName": "Capsicum sp.",
-    "minTemperature": 21,
-    "maxTemperature": 27,
-    "minPh": 6,
-    "maxPh": 7.6,
-    "salinity": 3,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":21,
         "max":27
@@ -293,6 +271,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":-1,
         "max":-1
@@ -311,6 +290,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":6,
         "max":7.6
@@ -333,14 +313,8 @@
     "id": "H006",
     "name": "Cabai Merah",
     "latinName": "Capsicum annuum",
-    "minTemperature": 18,
-    "maxTemperature": 36,
-    "minPh": 6,
-    "maxPh": 7.6,
-    "salinity": 3,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":18,
         "max":26
@@ -359,6 +333,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":-1,
         "max":-1
@@ -377,6 +352,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":6,
         "max":7.6
@@ -399,14 +375,8 @@
     "id": "H007",
     "name": "Buncis",
     "latinName": "Phaseolus vulgaris",
-    "minTemperature": 13,
-    "maxTemperature": 24,
-    "minPh": 6,
-    "maxPh": 7.8,
-    "salinity": 4.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready:": true,
       "s1":{
         "min":13,
         "max":24
@@ -425,6 +395,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":-1,
         "max":-1
@@ -443,6 +414,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":6,
         "max":7.8
@@ -465,14 +437,8 @@
     "id": "H008",
     "name": "Kubis",
     "latinName": "Brassica oleracea L.",
-    "minTemperature": 12,
-    "maxTemperature": 24,
-    "minPh": 5.6,
-    "maxPh": 7.6,
-    "salinity": 1,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":12,
         "max":24
@@ -491,6 +457,7 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
         "min":42,
         "max":75
@@ -509,6 +476,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":5.6,
         "max":7.6
@@ -531,14 +499,8 @@
     "id": "H009",
     "name": "Kacang Kapri",
     "latinName": "Pisum sativum",
-    "minTemperature": 12,
-    "maxTemperature": 24,
-    "minPh": 5.6,
-    "maxPh": 7.6,
-    "salinity": 1,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":12,
         "max":24
@@ -557,6 +519,7 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
         "min":42,
         "max":75
@@ -575,6 +538,7 @@
       }
     },
     "ph":{
+      "ready": true,
       "s1":{
         "min":5.6,
         "max":7.6
@@ -597,14 +561,8 @@
     "id": "H010",
     "name": "Kacang Panjang",
     "latinName": "Vigna sinensis ENDL",
-    "minTemperature": 14,
-    "maxTemperature": 20,
-    "minPh": 6,
-    "maxPh": 7.5,
-    "salinity": 2.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "temperature":{
+      "ready": true,
       "s1":{
         "min":14,
         "max":20
@@ -623,6 +581,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":-1,
         "max":-1
@@ -641,6 +600,7 @@
       }
     },
     "ph":{
+      "ready":true,
       "s1":{
         "min":6,
         "max":7.5
@@ -663,25 +623,19 @@
     "id": "H011",
     "name": "Mentimun",
     "latinName": "Cucumis sativus LINN",
-    "minTemperature": 12,
-    "maxTemperature": 24,
-    "minPh": 5.6,
-    "maxPh": 7.6,
-    "salinity": 1,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":12,
+        "max":24
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":10,
+        "max":27
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":8,
+        "max":30
       },
       "n":{
         "min":0,
@@ -689,35 +643,37 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":42,
+        "max":75
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":36,
+        "max":90
       },
       "s3":{
-        "min":0,
+        "min":30,
         "max":100
       },
       "n":{
         "min":0,
-        "max":100
+        "max":30
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":5.6,
+        "max":7.6
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.4,
+        "max":8.0
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
         "min":0,
@@ -729,25 +685,19 @@
     "id": "H012",
     "name": "Bayam",
     "latinName": "Amaranthus spe.div.",
-    "minTemperature": 22,
-    "maxTemperature": 30,
-    "minPh": 5.8,
-    "maxPh": 7.6,
-    "salinity": 4,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":22,
+        "max":30
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min": 20,
+        "max":32
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":18,
+        "max":35
       },
       "n":{
         "min":0,
@@ -755,39 +705,41 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
-        "min":0,
-        "max":100
+        "min":42,
+        "max":75
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":36,
+        "max":90
       },
       "s3":{
-        "min":0,
+        "min":30,
         "max":100
       },
       "n":{
         "min":0,
-        "max":100
+        "max":30
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":5.8,
+        "max":7.6
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.5,
+        "max":8
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -795,25 +747,19 @@
     "id": "H013",
     "name": "Petsai",
     "latinName": "Brassica purpureum SCHUM.",
-    "minTemperature": 18,
-    "maxTemperature": 26,
-    "minPh": 6,
-    "maxPh": 7.5,
-    "salinity": 5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":18,
+        "max":26
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":16,
+        "max":30
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":13,
+        "max":35
       },
       "n":{
         "min":0,
@@ -821,6 +767,7 @@
       }
     },
     "moisture":{
+      "ready": false,
       "s1":{
         "min":0,
         "max":100
@@ -838,48 +785,43 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
       "s1":{
-        "min":0,
-        "max":100
+        "min":6,
+        "max":7.5
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.5,
+        "max":8.0
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
-      }
+        "min":1,
+        "max":14
+      },
+      "ready": true
     }
   },
   {
     "id": "H014",
     "name": "Terung",
     "latinName": "Solanum Melongena LINN",
-    "minTemperature": 16,
-    "maxTemperature": 22,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":16,
+        "max":22
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":13,
+        "max":28
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":4,
+        "max":35
       },
       "n":{
         "min":0,
@@ -887,13 +829,14 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":40,
+        "max":80
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":20,
+        "max":90
       },
       "s3":{
         "min":0,
@@ -904,22 +847,23 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":6,
+        "max":7
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.7,
+        "max":7.6
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -927,25 +871,19 @@
     "id": "H015",
     "name": "Pare",
     "latinName": "Momordica charantia LINN",
-    "minTemperature": 16,
-    "maxTemperature": 22,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":16,
+        "max":22
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":13,
+        "max":28
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":4,
+        "max":35
       },
       "n":{
         "min":0,
@@ -953,13 +891,14 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":40,
+        "max":80
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":20,
+        "max":90
       },
       "s3":{
         "min":0,
@@ -970,22 +909,23 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":6,
+        "max":7
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.7,
+        "max":7.6
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -993,25 +933,19 @@
     "id": "H016",
     "name": "Sawi",
     "latinName": "Brassica rugosa FRAIN",
-    "minTemperature": 18,
-    "maxTemperature": 25,
-    "minPh": 5.5,
-    "maxPh": 7.8,
-    "salinity": 4,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":18,
+        "max":25
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":15,
+        "max":30
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":10,
+        "max":35
       },
       "n":{
         "min":0,
@@ -1019,39 +953,41 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
+        "min":42,
         "max":100
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":36,
+        "max":42
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":30,
+        "max":36
       },
       "n":{
         "min":0,
-        "max":100
+        "max":30
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":5.5,
+        "max":7.8
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5,
+        "max":8
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -1059,25 +995,19 @@
     "id": "H017",
     "name": "Lettuce",
     "latinName": "Selada",
-    "minTemperature": 16,
-    "maxTemperature": 22,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":16,
+        "max":22
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":13,
+        "max":28
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":4,
+        "max":35
       },
       "n":{
         "min":0,
@@ -1085,13 +1015,14 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":40,
+        "max":80
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":20,
+        "max":90
       },
       "s3":{
         "min":0,
@@ -1102,22 +1033,22 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
       "s1":{
-        "min":0,
-        "max":100
+        "min":6,
+        "max":7
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.7,
+        "max":7.6
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -1125,25 +1056,19 @@
     "id": "H018",
     "name": "Lobak",
     "latinName": "Taphanus sativus LINN",
-    "minTemperature": 16,
-    "maxTemperature": 22,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":16,
+        "max":22
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":13,
+        "max":28
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":4,
+        "max":35
       },
       "n":{
         "min":0,
@@ -1151,13 +1076,14 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":40,
+        "max":80
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":20,
+        "max":90
       },
       "s3":{
         "min":0,
@@ -1168,22 +1094,23 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":6,
+        "max":7
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.7,
+        "max":7.6
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -1191,25 +1118,19 @@
     "id": "H019",
     "name": "Asparagus",
     "latinName": "Asparagus afficinalis LINN",
-    "minTemperature": 13,
-    "maxTemperature": 24,
-    "minPh": 6,
-    "maxPh": 7.8,
-    "salinity": 4.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":13,
+        "max":24
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":10,
+        "max":30
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":5,
+        "max":35
       },
       "n":{
         "min":0,
@@ -1217,16 +1138,17 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":65,
+        "max":90
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":60,
+        "max":95
       },
       "s3":{
-        "min":0,
+        "min":50,
         "max":100
       },
       "n":{
@@ -1234,22 +1156,23 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":6,
+        "max":7.8
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.8,
+        "max":8
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -1257,25 +1180,19 @@
     "id": "H020",
     "name": "Brokoli",
     "latinName": "Brassica oleracea var italica",
-    "minTemperature": 12,
-    "maxTemperature": 24,
-    "minPh": 5.6,
-    "maxPh": 7.6,
-    "salinity": 1,
-    "minMoisture": 0,
-    "maxMoisture": 0,
-    "ph":{
+    "temperature":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":12,
+        "max":24
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":10,
+        "max":27
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":8,
+        "max":30
       },
       "n":{
         "min":0,
@@ -1283,16 +1200,17 @@
       }
     },
     "moisture":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":42,
+        "max":75
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":36,
+        "max":90
       },
       "s3":{
-        "min":0,
+        "min":30,
         "max":100
       },
       "n":{
@@ -1300,22 +1218,23 @@
         "max":100
       }
     },
-    "temperature":{
+    "ph":{
+      "ready": true,
       "s1":{
-        "min":0,
-        "max":100
+        "min":5.6,
+        "max":7.6
       },
       "s2":{
-        "min":0,
-        "max":100
+        "min":5.4,
+        "max":8
       },
       "s3":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       },
       "n":{
-        "min":0,
-        "max":100
+        "min":1,
+        "max":14
       }
     }
   },
@@ -1323,13 +1242,6 @@
     "id": "H021",
     "name": "Kailan",
     "latinName": "-",
-    "minTemperature": 16,
-    "maxTemperature": 22,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1389,13 +1301,6 @@
     "id": "H022",
     "name": "Biet",
     "latinName": "Beta vulgaris L.",
-    "minTemperature": 16,
-    "maxTemperature": 22,
-    "minPh": 6,
-    "maxPh": 7,
-    "salinity": 1.5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1455,13 +1360,6 @@
     "id": "H023",
     "name": "Pepaya",
     "latinName": "Carica papaya L.",
-    "minTemperature": 25,
-    "maxTemperature": 27,
-    "minPh": 5.6,
-    "maxPh": 7.5,
-    "salinity": 2,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1521,13 +1419,6 @@
     "id": "H024",
     "name": "Pisang",
     "latinName": "Musa acuminata COLLA",
-    "minTemperature": 25,
-    "maxTemperature": 28,
-    "minPh": 6,
-    "maxPh": 6.6,
-    "salinity": 2,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1587,13 +1478,6 @@
     "id": "H025",
     "name": "Tomat Sayur",
     "latinName": "Solanum lycopersicon esculentum MILL.",
-    "minTemperature": 18,
-    "maxTemperature": 26,
-    "minPh": 6,
-    "maxPh": 7.5,
-    "salinity": 5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1653,13 +1537,6 @@
     "id": "H026",
     "name": "Tomat Buah",
     "latinName": "Solanum lycopersicon esculentum MILL.",
-    "minTemperature": 18,
-    "maxTemperature": 26,
-    "minPh": 6,
-    "maxPh": 7.5,
-    "salinity": 5,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1719,13 +1596,6 @@
     "id": "H027",
     "name": "Apel",
     "latinName": "Pyrus malus, Malus silvestris MILL",
-    "minTemperature": 19,
-    "maxTemperature": 33,
-    "minPh": 5.5,
-    "maxPh": 7.6,
-    "salinity": 3,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1785,13 +1655,6 @@
     "id": "H028",
     "name": "Jeruk",
     "latinName": "Citrus sp.",
-    "minTemperature": 16,
-    "maxTemperature": 27,
-    "minPh": 5.5,
-    "maxPh": 7.8,
-    "salinity": 4,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1851,13 +1714,6 @@
     "id": "H029",
     "name": "Mangga",
     "latinName": "Mangifera indica L.",
-    "minTemperature": 18,
-    "maxTemperature": 26,
-    "minPh": 5,
-    "maxPh": 6.5,
-    "salinity": 3,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1917,13 +1773,6 @@
     "id": "H030",
     "name": "Avokad",
     "latinName": "Persea americana",
-    "minTemperature": 22,
-    "maxTemperature": 28,
-    "minPh": 5.5,
-    "maxPh": 7.8,
-    "salinity": 4,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -1983,13 +1832,6 @@
     "id": "H031",
     "name": "Jambu Biji",
     "latinName": "Psidium giajava LINN",
-    "minTemperature": 25,
-    "maxTemperature": 28,
-    "minPh": 5,
-    "maxPh": 6,
-    "salinity": 4,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,
@@ -2049,13 +1891,6 @@
     "id": "H032",
     "name": "Rambutan",
     "latinName": "Nephelium Lappaceun LINN",
-    "minTemperature": 22,
-    "maxTemperature": 28,
-    "minPh": 5,
-    "maxPh": 6,
-    "salinity": 4,
-    "minMoisture": 0,
-    "maxMoisture": 0,
     "ph":{
       "s1":{
         "min":0,

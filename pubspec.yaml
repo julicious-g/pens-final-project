@@ -38,6 +38,7 @@ dependencies:
   http: ^0.13.5
   flutter_cors: ^1.0.0
   equations: ^4.1.0
+  dwds: 16.0.3
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:final_project/main_screen_page.dart';
 import 'package:final_project/services/recommendation/plant_recommendation_service.dart';
 import 'package:final_project/services/sensor/dummy_sensor_service.dart';

@@ -46,9 +46,9 @@ class NutritionPredictionService {
 
     var nitrogenSolutions = nitrogenEq.solutions();
 
-    for (Complex number in nitrogenSolutions) {
-      print(number.real);
-    }
+    // for (Complex number in nitrogenSolutions) {
+    //   print(number.real);
+    // }
 
     var value = nitrogenSolutions[0].real;
     return NutritionPredictionModel(

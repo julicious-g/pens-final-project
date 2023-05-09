@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:final_project/services/recommendation/plant_recommendation_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -24,6 +26,7 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
     return AnimatedBuilder(
         animation: _service.listenable(),
         builder: (context, child) {
+          print("build plant recommendation page");
           var plantIds = _service.plantIdsOrderedByProperties();
 
           return ListView.builder(
@@ -97,8 +100,6 @@ class _PlantRecommendationPageState extends State<PlantRecomendationPage> {
                         Text(_service.temperatureFeasibilityLevel(plant))
                       ],
                     ),
-                    // _plantAcidityDetail(plant),
-                    // _plantSalinityDetail(plant)
                   ],
                 )
               ],

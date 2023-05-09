@@ -6,16 +6,11 @@ import '../../models/plant.dart';
 
 class PlantRecommendationService {
   Map<String, Plant> _plantMap = <String, Plant>{};
-  final Map<String, Function> _sensorCheckFunctions = <String, Function>{};
 
   late SensorService _sensorService;
 
   PlantRecommendationService() {
     _sensorService = GetIt.instance<SensorService>();
-
-    _sensorCheckFunctions["ph"] = _ispHMatch;
-    _sensorCheckFunctions["salinity"] = _isSalinityMatch;
-    _sensorCheckFunctions["temperature"] = _isSalinityMatch;
   }
 
   List<String> plantIds() => _plantMap.entries.map((e) => e.key).toList();
@@ -27,7 +22,8 @@ class PlantRecommendationService {
   List<String> plantIdsOrderedByProperties() {
     var plantList = _plantMap.values.toList();
 
-    plantList.sort((b, a) => getTotalFeasibilitiesImportance(a).compareTo(getTotalFeasibilitiesImportance(b)));
+    // plantList.sort((b, a) => getTotalFeasibilitiesImportance(a)
+    //     .compareTo(getTotalFeasibilitiesImportance(b)));
     return plantList.map((e) => e.id).toList();
   }
 
@@ -71,6 +67,10 @@ class PlantRecommendationService {
   @protected
   String getFeasibilityLevel(
       double sensorValue, FeasibilityClass feasibilityClass) {
+    if (!feasibilityClass.ready) {
+      return "-";
+    }
+
     if (isFeasible(sensorValue, feasibilityClass.s1)) {
       return "S1";
     } else if (isFeasible(sensorValue, feasibilityClass.s2)) {
@@ -100,33 +100,33 @@ class PlantRecommendationService {
     return getFeasibilityLevel(sensorValue, plant.temperature);
   }
 
-  int matchedCount(String plantId) {
-    var plant = this.plant(plantId);
-    var matchCount = 0;
-    _sensorCheckFunctions.forEach((key, value) =>
-        matchCount = value(plant) ? matchCount + 1 : matchCount);
+  // int matchedCount(String plantId) {
+  //   var plant = this.plant(plantId);
+  //   var matchCount = 0;
+  //   _sensorCheckFunctions.forEach((key, value) =>
+  //       matchCount = value(plant) ? matchCount + 1 : matchCount);
 
-    return matchCount;
-  }
+  //   return matchCount;
+  // }
 
-  bool isMatchAll(Plant plant) {
-    var ret = true;
+  // bool isMatchAll(Plant plant) {
+  //   var ret = true;
 
-    _sensorCheckFunctions.forEach((key, value) => ret = ret && value(plant));
+  //   _sensorCheckFunctions.forEach((key, value) => ret = ret && value(plant));
 
-    return ret;
-  }
+  //   return ret;
+  // }
 
-  bool isMatch(String sensor, Plant plant) {
-    var func = _sensorCheckFunctions[sensor] ?? (Plant plant) => false;
-    return func(plant);
-  }
+  // bool isMatch(String sensor, Plant plant) {
+  //   var func = _sensorCheckFunctions[sensor] ?? (Plant plant) => false;
+  //   return func(plant);
+  // }
 
-  bool _ispHMatch(Plant plant) {
-    var sensorPh = _sensorService.getSensorValue(PlantAttribute.ph) ?? 0;
+  // bool _ispHMatch(Plant plant) {
+  //   var sensorPh = _sensorService.getSensorValue(PlantAttribute.ph) ?? 0;
 
-    return sensorPh <= plant.maxPh && sensorPh >= plant.minPh;
-  }
+  //   return sensorPh <= plant.maxPh && sensorPh >= plant.minPh;
+  // }
 
   bool _isTemperatureMatch(Plant plant) {
     return false;
@@ -136,9 +136,9 @@ class PlantRecommendationService {
     return false;
   }
 
-  bool _isSalinityMatch(Plant plant) {
-    var sensorSalinity = 0;
+  // bool _isSalinityMatch(Plant plant) {
+  //   var sensorSalinity = 0;
 
-    return sensorSalinity <= plant.salinity;
-  }
+  //   return sensorSalinity <= plant.salinity;
+  // }
 }
